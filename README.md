@@ -41,24 +41,19 @@ Improvements in progress:
 
 ## 📂 Folder Structure
 
-\`\`\`
+```plaintext
 project-root/
-│
 ├── frontend/               # React app for user interface
 │   ├── components/
 │   └── pages/
-│
 ├── backend/                # Node.js server for app logic & database
 │   ├── controllers/
 │   └── routes/
-│
 ├── chatbot/                # FastAPI + BERT for diagnosis
 │   ├── app.py
-│   └── model
-│
+│   └── model/
 ├── docker-compose.yml      # Multi-service deployment
 └── README.md
-\`\`\`
 
 ## 🤝 Acknowledgements
 Developed in collaboration with:
