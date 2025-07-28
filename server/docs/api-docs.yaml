@@ -1,0 +1,245 @@
+openapi: 3.0.0
+info:
+title: Smart Agriculture Platform API
+description: API documentation for roles: Farmer, Engineer, Manager, IT
+version: 1.0.0
+
+servers:
+
+url: http://localhost:3000
+
+paths:
+/auth/register:
+post:
+summary: Register a new user
+tags: [Auth]
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+required: [username, password, role]
+properties:
+username:
+type: string
+password:
+type: string
+role:
+type: string
+enum: [farmer, engineer, manager, it]
+responses:
+'201': { description: Registered successfully }
+'400': { description: Username exists or invalid role }
+
+/auth/login:
+post:
+summary: Login an existing user
+tags: [Auth]
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+required: [username, password]
+properties:
+username:
+type: string
+password:
+type: string
+responses:
+'200': { description: Login successful }
+'400': { description: Invalid credentials }
+
+/farmer/dashboard:
+get:
+summary: Get farmer dashboard
+tags: [Farmer]
+security: [ { bearerAuth: [] } ]
+responses:
+'200': { description: Farmer dashboard access }
+
+/farmer/diseases:
+get:
+summary: View all diseases
+tags: [Farmer]
+security: [ { bearerAuth: [] } ]
+responses:
+'200': { description: List of diseases }
+
+/farmer/diagnose:
+post:
+summary: Submit symptom description
+tags: [Farmer]
+security: [ { bearerAuth: [] } ]
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+required: [description]
+properties:
+description:
+type: string
+responses:
+'201': { description: Diagnosis submitted }
+
+/farmer/my-diagnoses:
+get:
+summary: View my diagnoses
+tags: [Farmer]
+security: [ { bearerAuth: [] } ]
+responses:
+'200': { description: List of diagnoses }
+
+/farmer/answers:
+post:
+summary: Submit answers to questions
+tags: [Farmer]
+security: [ { bearerAuth: [] } ]
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+properties:
+answers:
+type: array
+items:
+type: object
+properties:
+question_id:
+type: integer
+answer:
+type: string
+responses:
+'201': { description: Answers submitted }
+
+/farmer/diagnose/auto:
+post:
+summary: Automatic diagnosis
+tags: [Farmer]
+security: [ { bearerAuth: [] } ]
+responses:
+'200': { description: Diagnosis complete }
+
+/engineer/dashboard:
+get:
+summary: Get engineer dashboard
+tags: [Engineer]
+security: [ { bearerAuth: [] } ]
+responses:
+'200': { description: Engineer dashboard access }
+
+/engineer/diseases:
+post:
+summary: Add disease with questions
+tags: [Engineer]
+security: [ { bearerAuth: [] } ]
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+required: [name, symptoms, solution, questions]
+properties:
+name:
+type: string
+symptoms:
+type: string
+solution:
+type: string
+questions:
+type: array
+items:
+type: string
+responses:
+'201': { description: Disease added }
+
+/manager/change-role:
+put:
+summary: Change user role
+tags: [Manager]
+security: [ { bearerAuth: [] } ]
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+required: [username, newRole]
+properties:
+username:
+type: string
+newRole:
+type: string
+enum: [farmer, engineer, manager, it]
+responses:
+'200': { description: Role changed }
+
+/manager/diseases:
+get:
+summary: View all diseases
+tags: [Manager]
+security: [ { bearerAuth: [] } ]
+responses:
+'200': { description: List of diseases }
+
+/it/users:
+get:
+summary: Get all users
+tags: [IT]
+security: [ { bearerAuth: [] } ]
+responses:
+'200': { description: List of users }
+
+/it/users/{id}/role:
+put:
+summary: Update user role by ID
+tags: [IT]
+security: [ { bearerAuth: [] } ]
+parameters:
+- in: path
+name: id
+required: true
+schema:
+type: integer
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+required: [newRole]
+properties:
+newRole:
+type: string
+responses:
+'200': { description: User role updated }
+
+/it/users/{id}:
+delete:
+summary: Delete user by ID
+tags: [IT]
+security: [ { bearerAuth: [] } ]
+parameters:
+- in: path
+name: id
+required: true
+schema:
+type: integer
+responses:
+'200': { description: User deleted }
+
+components:
+securitySchemes:
+bearerAuth:
+type: http
+scheme: bearer
+bearerFormat: JWT
+
+

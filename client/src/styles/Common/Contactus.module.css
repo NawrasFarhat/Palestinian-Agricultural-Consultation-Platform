@@ -1,0 +1,74 @@
+.contact-us {
+  margin: 100px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #e0e0e0;
+}
+
+.contact-card a {
+  color: #88cfff;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries للتجاوب */
+@media (max-width: 992px) {
+  .contact-us {
+    margin: 80px auto;
+    padding: 30px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-us {
+    margin: 60px 20px;
+    padding: 25px;
+    border-radius: 15px;
+  }
+  .contact-card p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-us {
+    margin: 50px 15px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .contact-card p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-us {
+    margin: 40px 10px;
+    padding: 15px;
+  }
+  .contact-card p {
+    font-size: 13px;
+    text-align: left;
+    padding-left: 10px;
+  }
+  .contact-card p strong {
+    display: block;
+    margin-bottom: 3px;
+  }
+}

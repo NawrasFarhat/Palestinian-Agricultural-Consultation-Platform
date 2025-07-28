@@ -1,0 +1,218 @@
+.container {
+    min-height: 100vh;
+    padding: 40px;
+    background: linear-gradient(to bottom right, rgba(25, 35, 20, 0.95), rgba(25, 35, 20, 0.9));
+    color: #e9f5e1;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #a6c1a0;
+    font-weight: 600;
+  }
+  
+  .message {
+    font-weight: 500;
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .success {
+    color: #a6c1a0;
+  }
+  
+  .error {
+    color: #f8b3b8;
+  }
+  
+  .tableContainer {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e9f5e1;
+  }
+  
+  .table th {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #a6c1a0;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  
+  .actionBtns {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .actionBtn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .approve {
+    background-color: #6f9b6c;
+    color: white;
+  }
+  
+  .approve:hover {
+    background-color: #5d855a;
+  }
+  
+  .reject {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .reject:hover {
+    background-color: #c82333;
+  }
+  
+  /* Modal Styling */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modalContent {
+    background-color: rgba(25, 35, 20, 0.98);
+    padding: 28px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 400px;
+    color: #e9f5e1;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    border: 1.5px solid rgba(166, 193, 160, 0.15);
+  }
+  
+  .modalContent h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #a6c1a0;
+    font-weight: 600;
+  }
+  
+  .modalContent label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    color: #a6c1a0;
+  }
+  
+  .modalContent textarea {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px;
+    resize: vertical;
+    margin-top: 7px;
+    border: 1.5px solid rgba(166, 193, 160, 0.18);
+    background-color: rgba(255,255,255,0.07);
+    color: #e9f5e1;
+    font-size: 1rem;
+    transition: border 0.2s, background 0.2s;
+  }
+  
+  .modalContent textarea:focus {
+    outline: none;
+    border-color: #6f9b6c;
+    background-color: rgba(255,255,255,0.13);
+  }
+  
+  .modalContent p {
+    color: #e9f5e1;
+    margin-bottom: 8px;
+  }
+  
+  .modalButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .modalButtons button {
+    padding: 8px 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .modalButtons .confirmReject,
+  .modalButtons .cancel {
+    background-color: #6f9b6c;
+    color: white;
+    transition: background 0.3s ease;
+  }
+  
+  .modalButtons .confirmReject:hover,
+  .modalButtons .cancel:hover {
+    background-color: #5d855a;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  
+    .title {
+      font-size: 1.7rem;
+    }
+  
+    .table th,
+    .table td {
+      font-size: 0.85rem;
+      padding: 12px;
+    }
+  
+    .modalContent {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .actionBtn {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+  
+    .modalContent textarea {
+      font-size: 0.9rem;
+    }
+  }
+  

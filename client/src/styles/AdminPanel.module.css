@@ -1,0 +1,173 @@
+/* AdminPanel.module.css */
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    to bottom right,
+    rgba(25, 35, 20, 0.95),
+    rgba(25, 35, 20, 0.9)
+  );
+  color: #e9f5e1;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #92a888;
+}
+
+.section {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #92a888;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #a6c1a0;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e9f5e1;
+  font-size: 1rem;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #aab7a5;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #92a888;
+  text-align: left;
+  color: #e9f5e1;
+}
+
+.button {
+  background-color: #fff;
+  color: #192314;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #192314;
+  color: #fff;
+}
+
+.button.secondary {
+  background-color: transparent;
+  border: 1px solid #92a888;
+  color: #92a888;
+  margin-left: 10px;
+}
+
+.button.secondary:hover {
+  background-color: #92a888;
+  color: #192314;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .section {
+    padding: 25px;
+    margin-bottom: 25px;
+  }
+
+  .title {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+
+  .label, .section-title {
+    font-size: 1.1rem;
+  }
+
+  .input, .textarea {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+  }
+
+  .button.secondary {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+
+  .label, .section-title {
+    font-size: 1rem;
+  }
+
+  .input, .textarea {
+    font-size: 0.95rem;
+  }
+
+  .textarea {
+    height: 80px;
+  }
+}

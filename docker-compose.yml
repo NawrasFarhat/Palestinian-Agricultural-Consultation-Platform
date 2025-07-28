@@ -1,0 +1,125 @@
+
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: agricultural_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: senior
+      MYSQL_USER: agricultural_user
+      MYSQL_PASSWORD: agricultural_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./server/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - agricultural_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Backend API Server
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    container_name: agricultural_backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      DB_HOST: mysql
+      DB_USER: agricultural_user
+      DB_PASS: agricultural_pass
+      DB_NAME: senior
+      DB_PORT: 3306
+      JWT_SECRET: your_super_secret_jwt_key_change_this_in_production
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - agricultural_network
+    command: sh -c "node run-migrations.js && npm run dev"
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: agricultural_frontend
+    restart: unless-stopped
+    environment:
+      VITE_API_URL: http://localhost:3000
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - agricultural_network
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+
+  # Chatbot FastAPI Service
+  chatbot:
+    build:
+      context: ./chatbot
+      dockerfile: Dockerfile
+    container_name: agricultural_chatbot
+    restart: unless-stopped
+    environment:
+      DB_HOST: mysql
+      DB_USER: agricultural_user
+      DB_PASS: agricultural_pass
+      DB_NAME: senior
+      DB_PORT: 3306
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chatbot:/app
+    depends_on:
+      mysql:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    networks:
+      - agricultural_network
+    command: sh -c "python init_db.py && python seed_data.py && uvicorn app:app --host 0.0.0.0 --port 8000 --reload"
+
+  # phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: agricultural_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: agricultural_user
+      PMA_PASSWORD: agricultural_pass
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8081:80"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - agricultural_network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  agricultural_network:
+    driver: bridge 

@@ -1,0 +1,235 @@
+/* FullScreenChatBot.css - Green Diagnosis Landing Theme (Custom Colors, Sharp Corners) */
+*{
+    margin: 0;
+    
+}
+.chat-landing-container {
+  display: flex;
+  height: 100vh;
+  background-color: #92a888;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar {
+  width: 70px;
+  background-color: #7d9775;
+  border-right: 1px solid #6f8567;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.sidebar .logo {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+}
+
+.sidebar nav button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin: 12px 0;
+  cursor: pointer;
+  color: #f4fdf6;
+  transition: color 0.2s;
+}
+
+.sidebar nav button:hover {
+  color: #ffffff;
+}
+
+.main-panel {
+  flex: 1;
+  padding: 60px;
+  background-color: rgba(25, 35, 20, 0.9);
+}
+
+.main-panel h1 {
+  font-size: 2.2rem;
+  line-height: 1.4;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.highlight-name {
+  color: #b3d8a6;
+}
+
+.highlight-question {
+  color: #d3f9cb;
+}
+
+.prompt-desc {
+  color: #cde5c9;
+  margin-bottom: 20px;
+}
+
+.prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.prompt-card {
+  padding: 18px 20px;
+  background-color: #f8fff5;
+  border: 1px solid #c8eac7;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: #2f4c36;
+}
+
+.prompt-card:hover {
+  background-color: #e5f8e0;
+}
+
+.input-area {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.diagnosis-input {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border: 1px solid #aacfb2;
+  border-radius: 4px;
+  outline: none;
+  background-color: #ffffff;
+  color: #1e2e1a;
+}
+
+.diagnosis-send {
+  background-color: #7d9775;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.diagnosis-send:hover {
+  background-color: #5d7454;
+}
+.chat-display {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #f1f8f4;
+  border: 1px solid #ccebd7;
+  border-radius: 6px;
+}
+
+.chat-bubble {
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  max-width: 80%;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.user-msg {
+  background-color: #d8eadf;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.bot-msg {
+  background-color: #eaf6ec;
+  align-self: flex-start;
+  margin-right: auto;
+}
+/* ========== Responsive Styles ========== */
+@media (max-width: 768px) {
+  .chat-landing-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-right: none;
+    border-bottom: 1px solid #6f8567;
+  }
+
+  .sidebar .logo {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .sidebar nav {
+    display: flex;
+    gap: 10px;
+  }
+
+  .main-panel {
+    padding: 20px;
+  }
+
+  .main-panel h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .prompt-card {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .chat-display {
+    max-height: 200px;
+    font-size: 0.9rem;
+  }
+
+  .input-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .diagnosis-send {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-panel h1 {
+    font-size: 1.2rem;
+  }
+
+  .prompt-desc {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .prompt-card {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .diagnosis-input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .diagnosis-send {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .chat-bubble {
+    font-size: 0.85rem;
+  }
+}

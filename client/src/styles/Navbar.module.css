@@ -1,0 +1,102 @@
+nav {
+  width: 100%;
+  color: #fff;
+  padding: 15px 80px; /* ← بدل 20px */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.logoimg {
+  width: 80px;
+}
+/* زر Login بتصميم مخصص */
+.login-button button {
+  background: #fff;
+  color: #92a888;
+  padding: 10px 30px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-button button:hover {
+  background: #f0f0f0;
+  color: #7d9775;
+}
+
+
+
+/* زر الهامبرغر (يظهر فقط على الموبايل) */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* قائمة التنقل */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+/* عنصر فردي */
+nav ul li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+ 
+}
+
+/* الوضع الليلي */
+.dark-nav {
+  background: rgba(25, 35, 20);
+}
+
+/* ========== Responsive Styles ========== */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(25, 35, 20);
+    display: none;
+    text-align: center;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    
+  }
+  
+  
+}

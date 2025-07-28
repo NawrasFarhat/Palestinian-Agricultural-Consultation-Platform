@@ -1,0 +1,128 @@
+.container {
+    min-height: 100vh;
+    width: 100vw;
+    padding: 40px;
+    margin: 0;
+    background: linear-gradient(to bottom right, rgba(25, 35, 20, 0.95), rgba(25, 35, 20, 0.9));
+    color: #e9f5e1;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 2rem;
+    color: #a6c1a0;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tableContainer {
+    overflow-x: auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.table th,
+.table td {
+    padding: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e9f5e1;
+    text-align: left;
+}
+
+.table th {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #a6c1a0;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.table td {
+    font-size: 0.95rem;
+}
+
+.roleBadge {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    color: #c7d9c7;
+}
+
+.successMessage,
+.errorMessage {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.successMessage {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #a6c1a0;
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.errorMessage {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #f8b3b8;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.editBtn, .deleteBtn {
+    background-color: #6f9b6c;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 50px;
+    transition: background 0.2s;
+}
+.editBtn:hover, .deleteBtn:hover {
+    background-color: #5d855a;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    .title {
+        font-size: 1.7rem;
+    }
+    .table th,
+    .table td {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+    .roleBadge {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    .table {
+        font-size: 0.85rem;
+    }
+    .table th,
+    .table td {
+        padding: 10px;
+    }
+} 

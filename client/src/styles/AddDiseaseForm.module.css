@@ -1,0 +1,287 @@
+/* DiseaseForm.module.css */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    to bottom right,
+    rgba(25, 35, 20, 0.95),
+    rgba(25, 35, 20, 0.9)
+  );
+  color: #e9f5e1;
+  overflow-y: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #a6c1a0;
+  font-weight: 600;
+}
+
+.section {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  width: 85vw;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  color: #a6c1a0;
+  font-weight: 600;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #a6c1a0;
+  font-size: 1rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e9f5e1;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #6f9b6c;
+  box-shadow: 0 0 0 2px rgba(111, 155, 108, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #aab7a5;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Question Row */
+.questionRow {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.questionRow .input {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+/* Buttons */
+.button {
+  background-color: #6f9b6c;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #5d855a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  background-color: #4a5d47;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Button Variants */
+.addButton {
+  background-color: #6f9b6c;
+  margin-top: 10px;
+}
+
+.addButton:hover {
+  background-color: #5d855a;
+}
+
+.removeButton {
+  background-color: #4a5d47;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  min-width: 80px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.removeButton:hover {
+  background-color: #2e3b2a;
+  color: #fff;
+}
+
+.submitButton {
+  background-color: #6f9b6c;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background-color: #5d855a;
+}
+
+/* Messages */
+.successMessage {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #a6c1a0;
+  border-radius: 8px;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  text-align: center;
+  font-weight: 500;
+}
+
+.errorMessage {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #f8b3b8;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* القائمة المنسدلة */
+.dropdown {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  background-color: #2e3b2a;
+  border: 1px solid #4b5e42;
+  border-radius: 6px;
+  z-index: 10;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #4b5e42;
+}
+
+.dropdown-item:hover {
+  background-color: #3d4d39;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .questionRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .questionRow .input {
+    width: 100%;
+  }
+
+  .removeButton {
+    align-self: flex-start;
+    width: auto;
+  }
+
+  .button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .section {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .button {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+}

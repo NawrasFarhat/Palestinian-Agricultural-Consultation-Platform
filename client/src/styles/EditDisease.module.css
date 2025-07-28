@@ -1,0 +1,180 @@
+/* EditDisease.module.css */
+
+/* التصميم العام */
+.container {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(to bottom right, rgba(25, 35, 20, 0.95), rgba(25, 35, 20, 0.9));
+  color: #e9f5e1;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #a6c1a0;
+  font-weight: 600;
+}
+
+.section {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  width: 85vw;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #a6c1a0;
+  font-weight: 600;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #a6c1a0;
+  font-size: 1rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e9f5e1;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #6f9b6c;
+  box-shadow: 0 0 0 2px rgba(111, 155, 108, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #aab7a5;
+}
+
+.qaScrollBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qaItem {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.button {
+  background-color: #6f9b6c;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #5d855a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:disabled {
+  background-color: #4a5d47;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.secondary {
+  background-color: #4a5d47;
+}
+
+.secondary:hover {
+  background-color: #2e3b2a;
+}
+
+/* Message Styles */
+.success {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #a6c1a0;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.error {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #f8b3b8;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .qaItem {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .qaScrollBox {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .input,
+  .textarea {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .button {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+}
