@@ -54,7 +54,7 @@ project-root/
 │   └── model/
 ├── docker-compose.yml      # Multi-service deployment
 └── README.md
-
+```
 ## 🤝 Acknowledgements
 Developed in collaboration with:
 - 📍 **Palestinian Agricultural Research Center**  
