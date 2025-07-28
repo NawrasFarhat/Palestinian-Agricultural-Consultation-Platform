@@ -41,7 +41,7 @@ Improvements in progress:
 
 ## 📂 Folder Structure
 
-\`\`\`bash
+\`\`\`
 project-root/
 │
 ├── frontend/               # React app for user interface
